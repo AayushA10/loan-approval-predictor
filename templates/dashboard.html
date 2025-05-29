@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard – Loan Submissions</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">📋 All Loan Submissions</h2>
+        <a href="/" class="btn btn-secondary mb-3">← Back to Form</a>
+
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>Timestamp</th>
+                    <th>Gender</th>
+                    <th>Married</th>
+                    <th>Education</th>
+                    <th>Income</th>
+                    <th>Loan Amount</th>
+                    <th>Credit History</th>
+                    <th>Property Area</th>
+                    <th>Prediction</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for sub in submissions %}
+                <tr>
+                    <td>{{ sub.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                    <td>{{ 'Male' if sub.gender == 1 else 'Female' }}</td>
+                    <td>{{ 'Yes' if sub.married == 1 else 'No' }}</td>
+                    <td>{{ 'Graduate' if sub.education == 1 else 'Not Graduate' }}</td>
+                    <td>{{ sub.income }}</td>
+                    <td>{{ sub.loan_amount }}</td>
+                    <td>{{ 'Good' if sub.credit_history == 1 else 'Bad' }}</td>
+                    <td>
+                        {% if sub.property_area == 2 %} Urban
+                        {% elif sub.property_area == 1 %} Semiurban
+                        {% else %} Rural
+                        {% endif %}
+                    </td>
+                    <td>{{ sub.prediction }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
