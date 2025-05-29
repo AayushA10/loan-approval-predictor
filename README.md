@@ -30,13 +30,6 @@ A full-stack FinTech web application that predicts whether a loan should be appr
 | Database    | SQLite + SQLAlchemy ORM             |
 | Deployment  | Render (optional)                   |
 
----
-
-## 📸 Screenshots
-
-<img src="https://user-images.githubusercontent.com/your-screenshot-url" width="700"/>
-
-> Add your own screenshot URLs or local `/screenshots` folder images.
 
 ---
 
